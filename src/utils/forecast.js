@@ -1,9 +1,9 @@
 request = require('request')
 
-const env = require('./env.js')
+const weatherURL = 'http://api.weatherstack.com/current?access_key=' + process.env.WEATHERKEY
 
 const forecast = (latitude, longitude, callback) => {
-    const url = env.weather_url + '&query=' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude)
+    const url = weatherURL + '&query=' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude)
     request({url, json: true}, (error, {body}) => {
         if (error) {
             callback('Unable to connect to Weather Services!', undefined)

@@ -1,9 +1,9 @@
 request = require('request')
 
-const env = require('./env.js')
+const locationURL = 'http://api.positionstack.com/v1/forward?access_key=' + process.env.LOCATIONKEY + '&limit=1'
 
 const geocode = (address, callback) => {
-    const url = env.location_url + '&query=' + encodeURIComponent(address)
+    const url = locationURL + '&query=' + encodeURIComponent(address)
     request({url, json: true}, (error, {body}) => {
         if (error) {
             callback('Unable to connect to Location Services', undefined)
