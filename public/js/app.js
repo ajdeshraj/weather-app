@@ -10,7 +10,7 @@ weatherForm.addEventListener('submit', (e) => {
 
     const location = searchElement.value
     console.log(location)
-    const url = 'http://localhost:3000/weather?address=' + location
+    const url = 'http://weather-application-ltyi.onrender.com/weather?address=' + location
 
     // Clearing content of the two paragraph tags
     messageOne.textContent = 'Loading... '
